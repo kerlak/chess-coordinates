@@ -1,3 +1,12 @@
+
+.app_body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: calc(var(--vh, 1vh) * 100);
+}
 .coordinate {
     flex: 1;
     text-align: center;
@@ -47,11 +56,11 @@
     background-color: rgb(181, 136, 99);
 }
 .piece .square{
-    width: 12.5%;
-    height: 12.5%;
+    /* width: 12.5%;
+    height: 12.5%; */
     top: 0;
     left: 0;
     background-size: cover;
     z-index: 2;
-    pointer-events: none;
+    /* pointer-events: none; */
 }

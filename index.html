@@ -10,96 +10,12 @@
         <link rel="stylesheet" type="text/css" href="pieces.css">
     </head>
     <body>
-        <div class="chessboard">
-            <div class="row piece">
-                <div class="square white black_rook"></div>
-                <div class="square black black_knight"></div>
-                <div class="square white black_bishop"></div>
-                <div class="square black black_queen"></div>
-                <div class="square white black_king"></div>
-                <div class="square black black_bishop"></div>
-                <div class="square white black_knight"></div>
-                <div class="square black black_rook"></div>
-            </div>
-            <div class="row piece">
-                <div class="square black black_pawn"></div>
-                <div class="square white black_pawn"></div>
-                <div class="square black black_pawn"></div>
-                <div class="square white black_pawn"></div>
-                <div class="square black black_pawn"></div>
-                <div class="square white black_pawn"></div>
-                <div class="square black black_pawn"></div>
-                <div class="square white black_pawn"></div>
-            </div>
-            <div class="row">
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-            </div>
-            <div class="row">
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-            </div>
-            <div class="row">
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-            </div>
-            <div class="row">
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-                <div class="square black"></div>
-                <div class="square white"></div>
-            </div>
-            <div class="row piece">
-                <div class="square white white_pawn"></div>
-                <div class="square black white_pawn"></div>
-                <div class="square white white_pawn"></div>
-                <div class="square black white_pawn"></div>
-                <div class="square white white_pawn"></div>
-                <div class="square black white_pawn"></div>
-                <div class="square white white_pawn"></div>
-                <div class="square black white_pawn"></div>
-            </div>
-            <div class="row piece">
-                <div class="square black white_rook"></div>
-                <div class="square white white_knight"></div>
-                <div class="square black white_bishop"></div>
-                <div class="square white white_queen"></div>
-                <div class="square black white_king"></div>
-                <div class="square white white_bishop"></div>
-                <div class="square black white_knight"></div>
-                <div class="square white white_rook"></div>
-            </div>
-        </div>
-        <div class="coordinate">
-            <h1 class="noselect">c7</h1>
-        </div>
-        <div class="score">
-            <div class="corrects noselect">8</div>
-            <div class="ratio noselect">0.47</div>
-            <div class="incorrects noselect">17</div>
-        </div>
+        <div id="chess_coordinates_app"></div>
     </body>
     <script src="theme.js"></script>
+    <script src="chessCoordinates.js"></script>
+    <script>
+        let node = document.getElementById("chess_coordinates_app")
+        let app = Elm.ChessCoordinates.embed(node);
+    </script>
 </html>
