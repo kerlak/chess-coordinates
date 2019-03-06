@@ -5141,6 +5141,8 @@ var author$project$ChessCoordinates$saveToStorage = function (model) {
 		author$project$ChessCoordinates$save(
 			A2(author$project$ChessCoordinates$encode, 2, model)));
 };
+var elm$core$Platform$Cmd$batch = _Platform_batch;
+var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var author$project$ChessCoordinates$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
@@ -5154,20 +5156,25 @@ var author$project$ChessCoordinates$update = F2(
 				return _Utils_Tuple2(model, author$project$ChessCoordinates$generate_random_coordinate);
 			default:
 				var coordinate = msg.a;
-				var _n1 = A2(author$project$ChessCoordinates$isSameCoordinate, coordinate, model.coordinate);
+				var _n1 = (model.coordinate.x < 0) || (model.coordinate.y < 0);
 				if (_n1) {
-					var corrects = model.corrects + 1;
-					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{corrects: corrects, ratio: corrects / (model.incorrects + corrects)}),
-						author$project$ChessCoordinates$generate_random_coordinate);
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 				} else {
-					var incorrects = model.incorrects + 1;
-					return author$project$ChessCoordinates$saveToStorage(
-						_Utils_update(
-							model,
-							{incorrects: incorrects, ratio: model.corrects / (incorrects + model.corrects)}));
+					var _n2 = A2(author$project$ChessCoordinates$isSameCoordinate, coordinate, model.coordinate);
+					if (_n2) {
+						var corrects = model.corrects + 1;
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{corrects: corrects, ratio: corrects / (model.incorrects + corrects)}),
+							author$project$ChessCoordinates$generate_random_coordinate);
+					} else {
+						var incorrects = model.incorrects + 1;
+						return author$project$ChessCoordinates$saveToStorage(
+							_Utils_update(
+								model,
+								{incorrects: incorrects, ratio: model.corrects / (incorrects + model.corrects)}));
+					}
 				}
 		}
 	});
@@ -6447,8 +6454,6 @@ var elm$url$Url$fromString = function (str) {
 		A2(elm$core$String$dropLeft, 8, str)) : elm$core$Maybe$Nothing);
 };
 var elm$browser$Browser$element = _Browser_element;
-var elm$core$Platform$Cmd$batch = _Platform_batch;
-var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var elm$core$Result$withDefault = F2(
 	function (def, result) {
 		if (result.$ === 'Ok') {
