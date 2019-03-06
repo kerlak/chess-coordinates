@@ -12,7 +12,7 @@
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
-                height: 100vh;
+                height: calc(var(--vh, 1vh) * 100);
                 font-family: 'Roboto', sans-serif;
             }
             .coordinate {
@@ -157,4 +157,8 @@
             <div class="incorrects">17</div>
         </div>
     </body>
+    <script>
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    </script>
 </html>
