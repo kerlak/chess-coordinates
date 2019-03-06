@@ -63,6 +63,14 @@
             .black {
                 background-color: rgb(181, 136, 99);
             }
+            .noselect {
+                -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                -khtml-user-select: none; /* Konqueror HTML */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently                               supported by Chrome and Opera */
+            }
         </style>
     </head>
     <body>
@@ -149,12 +157,12 @@
             </div>
         </div>
         <div class="coordinate">
-            <h1>c7</h1>
+            <h1 class="noselect">c7</h1>
         </div>
         <div class="score">
-            <div class="corrects">8</div>
-            <div class="ratio">0.47</div>
-            <div class="incorrects">17</div>
+            <div class="corrects noselect">8</div>
+            <div class="ratio noselect">0.47</div>
+            <div class="incorrects noselect">17</div>
         </div>
     </body>
     <script>
