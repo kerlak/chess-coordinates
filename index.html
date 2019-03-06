@@ -15,7 +15,20 @@
     <script src="theme.js"></script>
     <script src="chessCoordinates.js"></script>
     <script>
-        let node = document.getElementById("chess_coordinates_app")
-        let app = Elm.ChessCoordinates.embed(node);
+        // Load initial state from localStorage
+        let initialState;
+        try {
+            initialState = JSON.parse(localStorage.getItem('elm_chess_coordinates'));
+        } catch (e) {
+        }
+        let app = Elm.ChessCoordinates.init({
+            node: document.getElementById('chess_coordinates_app'),
+            flags: initialState
+        });
+        app.ports.save.subscribe(function (state) {
+            // Save game state to localStorage
+            localStorage.setItem('elm_chess_coordinates', state)
+        });
+        window.focus();
     </script>
 </html>
